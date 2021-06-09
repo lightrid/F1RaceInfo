@@ -29,10 +29,10 @@ class WinnersStatCell: UITableViewCell {
         self.accessoryType = .disclosureIndicator
     }
     
-    func configurate(_ driver: Drivers) {
-        pilotPositionLabel.text = driver.driverId
-        pilotNameLabel.text = driver.givenName + " " + driver.familyName
-        racePlaceNameLabel.text = driver.nationality
+    func configurate(_ with: WinnerDrivers) {
+        pilotPositionLabel.text = with.driver.permanentNumber
+        pilotNameLabel.text = with.driver.firstName + " " + with.driver.lastName
+        racePlaceNameLabel.text = with.raceName
         
     }
 }

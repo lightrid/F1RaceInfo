@@ -7,44 +7,99 @@
 
 import Foundation
 
-struct Drivers: Codable {
+struct FormulaData: Decodable {
+    var mrData: MRData
     
-    var driverId: String
+    enum CodingKeys: String, CodingKey {
+        case mrData = "MRData"
+    }
+}
+struct MRData: Decodable {
+    var xmlns: String
+    var series: String
     var url: String
-    var givenName: String
-    var familyName: String
-    var dateOfBirth: String
-    var nationality: String
+    var limit: String
+    var offset: String
+    var total: String
+    var driverTable: DriverTable?
+    var raceTable: RaceTable?
     
-    init?(json: [String: Any]) {
-
-        guard
-            let driverId = json["driverId"] as? String,
-            let url = json["url"] as? String,
-            let familyName = json["familyName"] as? String,
-            let givenName = json["givenName"] as? String,
-            let dateOfBirth = json["dateOfBirth"] as? String,
-            let nationality = json["nationality"] as? String
-        else {
-            return nil
-        }
-
-        self.driverId = driverId
-        self.url = url
-        self.givenName = givenName
-        self.familyName = familyName
-        self.dateOfBirth = dateOfBirth
-        self.nationality = nationality
+    enum CodingKeys: String, CodingKey {
+        case xmlns
+        case series
+        case url
+        case limit
+        case offset
+        case total
+        case driverTable = "DriverTable"
+        case raceTable = "RaceTable"
     }
 }
 
-struct MRData: Codable {
+struct DriverTable: Decodable {
+    var drivers: [Driver]
     
-    var xmlns: String
-    var series: String?
-    var url: String?
-    var limit: String?
-    var offset: String?
-    var total: String?
-    var driverTable: [Drivers]
+    enum CodingKeys: String, CodingKey {
+        case drivers = "Drivers"
+    }
+}
+
+struct WinnerDrivers {
+    var driver: Driver
+    var raceName: String
+}
+
+struct RaceTable: Decodable {
+    var season: String
+    var position: String
+    var races: [Races]
+    
+    enum CodingKeys: String, CodingKey {
+        case season
+        case position
+        case races = "Races"
+    }
+}
+
+struct Races: Decodable {
+    var season: String
+    var round: String
+    var url: String
+    var raceName: String
+    var results: [Results]
+    
+    enum CodingKeys: String, CodingKey {
+        case season
+        case round
+        case url
+        case raceName
+        case results = "Results"
+    }
+}
+
+struct Results: Decodable {
+    var position: String
+    var driver: Driver
+    
+    enum CodingKeys: String, CodingKey {
+        case position
+        case driver = "Driver"
+    }
+}
+
+struct Driver: Decodable {
+    
+    var driverId: String
+    var url: String
+    var firstName: String
+    var lastName: String
+    var permanentNumber: String?
+    
+    enum CodingKeys: String, CodingKey {
+        case driverId
+        case url
+        case firstName = "givenName"
+        case lastName = "familyName"
+        case permanentNumber
+    }
 }

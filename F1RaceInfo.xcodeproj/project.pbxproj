@@ -17,6 +17,7 @@
 		B777BB372670C26A00A48B55 /* WinnersStatCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B777BB362670C26A00A48B55 /* WinnersStatCell.swift */; };
 		B777BB3A2670C65300A48B55 /* Driver.swift in Sources */ = {isa = PBXBuildFile; fileRef = B777BB392670C65300A48B55 /* Driver.swift */; };
 		B777BB432670CC7200A48B55 /* QueryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B777BB422670CC7200A48B55 /* QueryService.swift */; };
+		B777BB4826715A0900A48B55 /* DriverPlacesCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B777BB4726715A0900A48B55 /* DriverPlacesCell.xib */; };
 		B7797D21266FE44D00807A2F /* CurrentYearWinnersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7797D20266FE44D00807A2F /* CurrentYearWinnersViewController.swift */; };
 		B7797D252670007300807A2F /* DetailRaceInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7797D242670007300807A2F /* DetailRaceInfoViewController.swift */; };
 		C16CF70BE4683EBDD14B5F24 /* Pods_F1RaceInfo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC7955095DDC630FE398F29A /* Pods_F1RaceInfo.framework */; };
@@ -37,6 +38,7 @@
 		B777BB362670C26A00A48B55 /* WinnersStatCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WinnersStatCell.swift; sourceTree = "<group>"; };
 		B777BB392670C65300A48B55 /* Driver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Driver.swift; sourceTree = "<group>"; };
 		B777BB422670CC7200A48B55 /* QueryService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueryService.swift; sourceTree = "<group>"; };
+		B777BB4726715A0900A48B55 /* DriverPlacesCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DriverPlacesCell.xib; sourceTree = "<group>"; };
 		B7797D20266FE44D00807A2F /* CurrentYearWinnersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentYearWinnersViewController.swift; sourceTree = "<group>"; };
 		B7797D242670007300807A2F /* DetailRaceInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailRaceInfoViewController.swift; sourceTree = "<group>"; };
 		DC7955095DDC630FE398F29A /* Pods_F1RaceInfo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_F1RaceInfo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -107,6 +109,7 @@
 			children = (
 				B777BB332670BFC700A48B55 /* WinnersStatCell.xib */,
 				B777BB362670C26A00A48B55 /* WinnersStatCell.swift */,
+				B777BB4726715A0900A48B55 /* DriverPlacesCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -210,6 +213,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B776A089266EBFE900FE7532 /* .swiftlint.yml in Resources */,
+				B777BB4826715A0900A48B55 /* DriverPlacesCell.xib in Resources */,
 				B777BB342670BFC700A48B55 /* WinnersStatCell.xib in Resources */,
 				B776A073266EB87900FE7532 /* LaunchScreen.storyboard in Resources */,
 				B776A070266EB87900FE7532 /* Assets.xcassets in Resources */,

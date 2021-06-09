@@ -10,32 +10,32 @@ import UIKit
 class CurrentYearWinnersViewController: UITableViewController {
 
     private let cellIdentifier = "WinnersStatCell"
-    private var drivers = [Drivers]()
+    private var winnerRaces = [WinnerDrivers]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         let cellNib = UINib(nibName: cellIdentifier, bundle: nil)
         tableView.register(cellNib, forCellReuseIdentifier: cellIdentifier)
-        QueryService.getDriversList {[weak self] drivers in
+        QueryService.getCurrentWinnerList {[weak self] drivers in
             guard let self = self else {
                 return
             }
-            self.drivers = drivers
+            self.winnerRaces = drivers
             self.tableView.reloadData()
         }
     }
 
     // MARK: - Table view data source
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return drivers.count
+        return winnerRaces.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? WinnersStatCell else {
             return UITableViewCell()
         }
-        cell.configurate(drivers[indexPath.row])
+        cell.configurate(winnerRaces[indexPath.row])
         return cell
     }
     
