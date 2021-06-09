@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="WinnersStatCell" id="y8t-2O-bfP" customClass="WinnersStatCell" customModule="F1RaceInfo" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="90"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="y8t-2O-bfP" id="2HN-6r-tJP">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="90"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <stackView opaque="NO" contentMode="scaleToFill" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="OEB-GU-8Fl">
+                        <rect key="frame" x="16" y="16" width="288" height="20.5"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="PilotName" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hKZ-JT-BjU">
+                                <rect key="frame" x="0.0" y="0.0" width="78.5" height="20.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="70" id="phO-Tn-rRG"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="17" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e8m-Fa-jEf">
+                                <rect key="frame" x="94.5" y="0.0" width="193.5" height="20.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="20" id="JAx-GO-dTj"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="e8m-Fa-jEf" firstAttribute="leading" secondItem="hKZ-JT-BjU" secondAttribute="trailing" constant="16" id="8Oh-fe-h1K"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="e8m-Fa-jEf" secondAttribute="trailing" id="Uzn-k3-PpI"/>
+                            <constraint firstItem="hKZ-JT-BjU" firstAttribute="leading" secondItem="OEB-GU-8Fl" secondAttribute="leading" id="WtL-At-rJg"/>
+                        </constraints>
+                    </stackView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="RacePlace" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SZh-Fz-FhF">
+                        <rect key="frame" x="16" y="52.5" width="288" height="21.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="OEB-GU-8Fl" secondAttribute="trailing" constant="16" id="073-yu-VKv"/>
+                    <constraint firstItem="OEB-GU-8Fl" firstAttribute="leading" secondItem="2HN-6r-tJP" secondAttribute="leading" constant="16" id="10t-EO-YMM"/>
+                    <constraint firstAttribute="trailing" secondItem="SZh-Fz-FhF" secondAttribute="trailing" constant="16" id="2Dw-KH-ZWW"/>
+                    <constraint firstItem="SZh-Fz-FhF" firstAttribute="leading" secondItem="2HN-6r-tJP" secondAttribute="leading" constant="16" id="Dfg-mh-7IR"/>
+                    <constraint firstItem="SZh-Fz-FhF" firstAttribute="top" secondItem="OEB-GU-8Fl" secondAttribute="bottom" constant="16" id="NUu-Sc-wck"/>
+                    <constraint firstItem="OEB-GU-8Fl" firstAttribute="top" secondItem="2HN-6r-tJP" secondAttribute="top" constant="16" id="ovW-RU-8Wk"/>
+                    <constraint firstAttribute="bottom" secondItem="SZh-Fz-FhF" secondAttribute="bottom" constant="16" id="zQp-uX-RS0"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="pilotNameLabel" destination="hKZ-JT-BjU" id="Sg9-tN-xnh"/>
+                <outlet property="pilotPositionLabel" destination="e8m-Fa-jEf" id="3ox-Ob-o8c"/>
+                <outlet property="racePlaceNameLabel" destination="SZh-Fz-FhF" id="38x-5t-WIj"/>
+            </connections>
+            <point key="canvasLocation" x="6" y="52"/>
+        </tableViewCell>
+    </objects>
+</document>

@@ -9,26 +9,33 @@ import UIKit
 
 class CurrentYearWinnersViewController: UITableViewController {
 
+    private let cellIdentifier = "WinnersStatCell"
+    private var drivers = [Drivers]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        
+        let cellNib = UINib(nibName: cellIdentifier, bundle: nil)
+        tableView.register(cellNib, forCellReuseIdentifier: cellIdentifier)
+        QueryService.getDriversList {[weak self] drivers in
+            guard let self = self else {
+                return
+            }
+            self.drivers = drivers
+            self.tableView.reloadData()
+        }
     }
 
     // MARK: - Table view data source
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 1
+        return drivers.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "CurrentWinnerCell", for: indexPath)
-        cell.textLabel?.text = "TEST"
-        cell.detailTextLabel?.text = "Detail"
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? WinnersStatCell else {
+            return UITableViewCell()
+        }
+        cell.configurate(drivers[indexPath.row])
         return cell
     }
     
@@ -77,9 +84,9 @@ class CurrentYearWinnersViewController: UITableViewController {
         guard segue.identifier == "DetailRaceInfoIdentifier" else {
             return
         }
-        guard let detailVC = segue.destination as? DetailRaceInfoViewController else {
-            return
-        }
+//        guard let detailVC = segue.destination as? DetailRaceInfoViewController else {
+//            return
+//        }
         
     }
     
