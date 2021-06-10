@@ -8,57 +8,54 @@
 import Foundation
 import Alamofire
 
-struct QueryService {
-    static func getDriversList(completion: @escaping (_ driversItem: [Driver]) -> Void) {
-        AF.request("https://ergast.com/api/f1/drivers.json").validate().responseDecodable(of: FormulaData.self) { responseJSON in
-            
-            switch responseJSON.result {
-            case .failure(let error):
-                print(error)
-            case .success:
-                guard let value = responseJSON.value else {
-                    return
-                }
-                guard let results = value.mrData.driverTable?.drivers else {
-                    return
-                }
-                
-                DispatchQueue.main.async {
-                    completion(results)
-                }
-            }
+enum Year {
+    case current
+    case previous(Int)
+    
+    func description() -> String {
+        switch self {
+        case .current:
+            return "current"
+        case .previous(let value):
+            return String(value)
+        }
+    }
+}
+
+enum ApiRequestRouter: URLRequestConvertible {
+    
+    static let baseURLPath = "https://ergast.com/api/f1"
+    
+    case position(searchPosition: Int, year: Year)
+    case round(searchRound: Int, year: Year)
+    
+    var path: String {
+        switch self {
+        case .position(searchPosition: let searchPosition, year: let year):
+            return "/\(year.description())/results/\(searchPosition).json"
+        case .round(searchRound: let searchRound, year: let year):
+            return "/\(year.description())/\(searchRound)/results.json"
         }
     }
     
-    static func getCurrentWinnerList(completion: @escaping (_ winnerDrivers: [WinnerDrivers]) -> Void) {
-        AF.request("https://ergast.com/api/f1/current/results/1.json").validate().responseDecodable(of: FormulaData.self) { responseJSON in
-            
-            switch responseJSON.result {
-            case .failure(let error):
-                print(error)
-            case .success:
-                guard let value = responseJSON.value else {
-                    return
-                }
-                guard let raceTable = value.mrData.raceTable?.races else {
-                    return
-                }
-
-                let result = raceTable.compactMap { WinnerDrivers(driver: $0.results[0].driver, raceName: $0.raceName)
-                }
-                DispatchQueue.main.async {
-                    completion(result)
-                }
-            }
-        }
+    func asURLRequest() throws -> URLRequest {
+        let url = try ApiRequestRouter.baseURLPath.asURL()
+        let request = URLRequest(url: url.appendingPathComponent(path))
+        print(request)
+        return try URLEncoding.default.encode(request, with: nil)
     }
     
 }
 
-//                var results: [WinnerDrivers] = []
-//                for race in raceTable {
-//                    let result = WinnerDrivers(driver: race.results[0].driver, raceName: race.raceName)
-//                    print(result)
-//                    results.append(result)
-//                }
-//
+typealias RaceResponse = (_ response: [Race]?, _ error: Error?) -> Void
+
+struct QueryService {
+    
+    public static func makeRequest(route: ApiRequestRouter, completion: @escaping RaceResponse) {
+        print(route)
+        AF.request(route).validate().responseDecodable(of: FormulaData.self) { response in
+            print(response.value as Any)
+            completion(response.value?.mrData.raceTable?.races, response.error)
+        }
+    }
+}

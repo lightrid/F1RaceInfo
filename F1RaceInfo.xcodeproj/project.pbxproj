@@ -18,8 +18,10 @@
 		B777BB3A2670C65300A48B55 /* Driver.swift in Sources */ = {isa = PBXBuildFile; fileRef = B777BB392670C65300A48B55 /* Driver.swift */; };
 		B777BB432670CC7200A48B55 /* QueryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B777BB422670CC7200A48B55 /* QueryService.swift */; };
 		B777BB4826715A0900A48B55 /* DriverPlacesCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B777BB4726715A0900A48B55 /* DriverPlacesCell.xib */; };
+		B777BB4B267160BE00A48B55 /* DriverPlacesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B777BB4A267160BE00A48B55 /* DriverPlacesCell.swift */; };
 		B7797D21266FE44D00807A2F /* CurrentYearWinnersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7797D20266FE44D00807A2F /* CurrentYearWinnersViewController.swift */; };
 		B7797D252670007300807A2F /* DetailRaceInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7797D242670007300807A2F /* DetailRaceInfoViewController.swift */; };
+		B7932129267265EC00464C7A /* SearchYearAndRoundController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7932128267265EC00464C7A /* SearchYearAndRoundController.swift */; };
 		C16CF70BE4683EBDD14B5F24 /* Pods_F1RaceInfo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC7955095DDC630FE398F29A /* Pods_F1RaceInfo.framework */; };
 /* End PBXBuildFile section */
 
@@ -39,8 +41,10 @@
 		B777BB392670C65300A48B55 /* Driver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Driver.swift; sourceTree = "<group>"; };
 		B777BB422670CC7200A48B55 /* QueryService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueryService.swift; sourceTree = "<group>"; };
 		B777BB4726715A0900A48B55 /* DriverPlacesCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DriverPlacesCell.xib; sourceTree = "<group>"; };
+		B777BB4A267160BE00A48B55 /* DriverPlacesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverPlacesCell.swift; sourceTree = "<group>"; };
 		B7797D20266FE44D00807A2F /* CurrentYearWinnersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentYearWinnersViewController.swift; sourceTree = "<group>"; };
 		B7797D242670007300807A2F /* DetailRaceInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailRaceInfoViewController.swift; sourceTree = "<group>"; };
+		B7932128267265EC00464C7A /* SearchYearAndRoundController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchYearAndRoundController.swift; sourceTree = "<group>"; };
 		DC7955095DDC630FE398F29A /* Pods_F1RaceInfo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_F1RaceInfo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -110,6 +114,7 @@
 				B777BB332670BFC700A48B55 /* WinnersStatCell.xib */,
 				B777BB362670C26A00A48B55 /* WinnersStatCell.swift */,
 				B777BB4726715A0900A48B55 /* DriverPlacesCell.xib */,
+				B777BB4A267160BE00A48B55 /* DriverPlacesCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -119,6 +124,7 @@
 			children = (
 				B7797D20266FE44D00807A2F /* CurrentYearWinnersViewController.swift */,
 				B7797D242670007300807A2F /* DetailRaceInfoViewController.swift */,
+				B7932128267265EC00464C7A /* SearchYearAndRoundController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -289,9 +295,11 @@
 			files = (
 				B777BB372670C26A00A48B55 /* WinnersStatCell.swift in Sources */,
 				B7797D252670007300807A2F /* DetailRaceInfoViewController.swift in Sources */,
+				B7932129267265EC00464C7A /* SearchYearAndRoundController.swift in Sources */,
 				B776A067266EB86E00FE7532 /* AppDelegate.swift in Sources */,
 				B777BB3A2670C65300A48B55 /* Driver.swift in Sources */,
 				B777BB432670CC7200A48B55 /* QueryService.swift in Sources */,
+				B777BB4B267160BE00A48B55 /* DriverPlacesCell.swift in Sources */,
 				B776A069266EB86E00FE7532 /* SceneDelegate.swift in Sources */,
 				B7797D21266FE44D00807A2F /* CurrentYearWinnersViewController.swift in Sources */,
 			);

@@ -44,29 +44,26 @@ struct DriverTable: Decodable {
     }
 }
 
-struct WinnerDrivers {
-    var driver: Driver
-    var raceName: String
-}
-
 struct RaceTable: Decodable {
     var season: String
-    var position: String
-    var races: [Races]
+    var position: String?
+    var races: [Race]
     
     enum CodingKeys: String, CodingKey {
         case season
         case position
         case races = "Races"
+        
     }
 }
 
-struct Races: Decodable {
-    var season: String
-    var round: String
+struct Race: Decodable {
+    var season: Int
+    var round: Int
     var url: String
     var raceName: String
     var results: [Results]
+    var date: Date
     
     enum CodingKeys: String, CodingKey {
         case season
@@ -74,19 +71,57 @@ struct Races: Decodable {
         case url
         case raceName
         case results = "Results"
+        case date
     }
+    
+    static let formatter: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd"
+        formatter.calendar = Calendar(identifier: .iso8601)
+        formatter.timeZone = TimeZone(secondsFromGMT: 0)
+        formatter.locale = Locale(identifier: "en_US_POSIX")
+        return formatter
+    }()
+
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        
+        let seasonString = try container.decode(String.self, forKey: .season)
+        self.season = Int(seasonString)!
+        
+        let roundString = try container.decode(String.self, forKey: .round)
+        self.round = Int(roundString)!
+        
+        let dateString =  try container.decode(String.self, forKey: .date)
+        self.date = Race.formatter.date(from: dateString)!
+        
+        self.results = try container.decode([Results].self, forKey: .results)
+        self.raceName = try container.decode(String.self, forKey: .raceName)
+        self.url = try container.decode(String.self, forKey: .url)
+        
+    }
+    
 }
 
 struct Results: Decodable {
     var position: String
     var driver: Driver
+    var time: Time?
     
     enum CodingKeys: String, CodingKey {
         case position
         case driver = "Driver"
+        case time = "Time"
     }
 }
 
+struct Time: Decodable {
+    var time: String
+    
+    enum CodingKeys: String, CodingKey {
+        case time
+    }
+}
 struct Driver: Decodable {
     
     var driverId: String

@@ -1,13 +1,13 @@
 //
-//  CurrentYearWinersViewController.swift
+//  SearchYearAndRound.swift
 //  F1RaceInfo
 //
-//  Created by Mykhailo Kviatkovskyi on 08.06.2021.
+//  Created by Mykhailo Kviatkovskyi on 10.06.2021.
 //
 
 import UIKit
 
-class CurrentYearWinnersViewController: UITableViewController {
+class SearchYearAndRoundController: UITableViewController {
 
     private let cellIdentifier = "WinnersStatCell"
     private var winnersOfRaces = [Race]()
@@ -15,12 +15,12 @@ class CurrentYearWinnersViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let cellNib = UINib(nibName: cellIdentifier, bundle: nil)
+       let cellNib = UINib(nibName: cellIdentifier, bundle: nil)
         tableView.register(cellNib, forCellReuseIdentifier: cellIdentifier)
-        
         getWinnersForCurrentYear()
+       
     }
-
+    
     func getWinnersForCurrentYear() {
         QueryService.makeRequest(route: .position(searchPosition: 1, year: .current)) { [weak self] (response, error) in
             guard let self = self else {
@@ -42,27 +42,6 @@ class CurrentYearWinnersViewController: UITableViewController {
         }
     }
     
-    func getRace(round: Int, season: Year) {
-        QueryService.makeRequest(route: .round(searchRound: round, year: season)) { [weak self] (response, error) in
-                guard let self = self else {
-                    return
-                }
-                guard error == nil else {
-                    print("getWinnersForCurrentYear error: \(error!)")
-                    return
-                }
-                guard let list = response else {
-                    print("getWinnersForCurrentYear empty")
-                    return
-                }
-                
-                DispatchQueue.main.async {
-                    self.winnersOfRaces = list
-                    self.tableView.reloadData()
-                }
-            }
-        }
-    
     // MARK: - Table view data source
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return winnersOfRaces.count
@@ -77,14 +56,12 @@ class CurrentYearWinnersViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-       performSegue(withIdentifier: "DetailRaceInfoIdentifier", sender: indexPath)
+       performSegue(withIdentifier: "DetailSearchInfoIdentifier", sender: indexPath)
     }
 
     // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard segue.identifier == "DetailRaceInfoIdentifier" else {
+        guard segue.identifier == "DetailSearchInfoIdentifier" else {
             return
         }
         guard let detailVC = segue.destination as? DetailRaceInfoViewController else {
@@ -94,8 +71,7 @@ class CurrentYearWinnersViewController: UITableViewController {
             return
         }
         
-        detailVC.getRace(round: winnersOfRaces[indexPath.row].round, season: .previous(winnersOfRaces[indexPath.row].season))
-
+        detailVC.race = winnersOfRaces[indexPath.row]
+        detailVC.results = winnersOfRaces[indexPath.row].results
     }
-    
 }
