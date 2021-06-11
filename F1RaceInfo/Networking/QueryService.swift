@@ -26,7 +26,7 @@ enum ApiRequestRouter: URLRequestConvertible {
     
     static let baseURLPath = "https://ergast.com/api/f1"
     
-    case position(searchPosition: Int, year: Year)
+    case position(searchPosition: String, year: Year)
     case round(searchRound: Int, year: Year)
     
     var path: String {

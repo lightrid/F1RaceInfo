@@ -87,13 +87,13 @@ struct Race: Decodable {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         
         let seasonString = try container.decode(String.self, forKey: .season)
-        self.season = Int(seasonString)!
+        self.season = Int(seasonString) ?? 0
         
         let roundString = try container.decode(String.self, forKey: .round)
-        self.round = Int(roundString)!
+        self.round = Int(roundString) ?? 0
         
         let dateString =  try container.decode(String.self, forKey: .date)
-        self.date = Race.formatter.date(from: dateString)!
+        self.date = Race.formatter.date(from: dateString) ?? Date()
         
         self.results = try container.decode([Results].self, forKey: .results)
         self.raceName = try container.decode(String.self, forKey: .raceName)

@@ -19,10 +19,11 @@ class CurrentYearWinnersViewController: UITableViewController {
         tableView.register(cellNib, forCellReuseIdentifier: cellIdentifier)
         
         getWinnersForCurrentYear()
+        
     }
 
     func getWinnersForCurrentYear() {
-        QueryService.makeRequest(route: .position(searchPosition: 1, year: .current)) { [weak self] (response, error) in
+        QueryService.makeRequest(route: .position(searchPosition: "1", year: .current)) { [weak self] (response, error) in
             guard let self = self else {
                 return
             }

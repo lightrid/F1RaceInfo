@@ -146,64 +146,50 @@
                     <connections>
                         <segue destination="fKH-FT-jFj" kind="relationship" relationship="viewControllers" id="Pxj-C9-rUG"/>
                         <segue destination="HfO-jY-rLE" kind="relationship" relationship="viewControllers" id="H08-G6-9Zc"/>
+                        <segue destination="r5i-g6-5Mr" kind="relationship" relationship="viewControllers" id="1KP-ZA-zCO"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="v2S-3N-wf6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="292.75362318840581" y="68.973214285714278"/>
         </scene>
-        <!--View Controller-->
+        <!--Search View Controller-->
         <scene sceneID="Oqv-D7-yf7">
             <objects>
-                <viewController id="r5i-g6-5Mr" sceneMemberID="viewController">
+                <viewController id="r5i-g6-5Mr" customClass="SearchViewController" customModule="F1RaceInfo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="jzK-Jf-OcN">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="49" translatesAutoresizingMaskIntoConstraints="NO" id="2KA-Tx-S4X">
-                                <rect key="frame" x="32" y="54" width="350" height="34"/>
+                                <rect key="frame" x="32" y="54" width="350" height="33"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Lsk-rV-QrB">
-                                        <rect key="frame" x="0.0" y="0.0" width="150.5" height="34"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4P7-4u-Nwy">
-                                        <rect key="frame" x="199.5" y="0.0" width="150.5" height="34"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rbj-WM-39f">
+                                        <rect key="frame" x="0.0" y="0.0" width="150.5" height="33"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <state key="normal" title="Select year">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="leftDropDownButtonAction" destination="r5i-g6-5Mr" eventType="touchUpInside" id="rMB-3G-a9r"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n92-KS-Kfk">
+                                        <rect key="frame" x="199.5" y="0.0" width="150.5" height="33"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <state key="normal" title="Select position">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="leftDropDownButton" destination="r5i-g6-5Mr" eventType="touchUpInside" id="aGa-xd-ZMk"/>
+                                            <action selector="rightDropDownButtonAction" destination="r5i-g6-5Mr" eventType="touchUpInside" id="dLe-0E-fiL"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                             </stackView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="86D-9h-THK">
-                                <rect key="frame" x="0.0" y="94" width="414" height="802"/>
+                                <rect key="frame" x="0.0" y="93" width="414" height="803"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="SelectedWinnerCell" textLabel="XZA-8P-sbA" detailTextLabel="ooX-cU-xsM" style="IBUITableViewCellStyleSubtitle" id="5ZJ-5C-ZwP">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="55.5"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="5ZJ-5C-ZwP" id="6XX-OB-0WJ">
-                                            <rect key="frame" x="0.0" y="0.0" width="383" height="55.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="XZA-8P-sbA">
-                                                    <rect key="frame" x="20" y="10" width="33" height="20.5"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ooX-cU-xsM">
-                                                    <rect key="frame" x="20" y="31.5" width="44" height="14.5"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </prototypes>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="bL8-NB-lnh"/>
@@ -219,10 +205,15 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" systemItem="recents" id="Yyi-u9-kDi"/>
+                    <connections>
+                        <outlet property="leftDropDownButton" destination="Rbj-WM-39f" id="eP5-fb-wBo"/>
+                        <outlet property="rightDropDownButton" destination="n92-KS-Kfk" id="QVi-9v-qQw"/>
+                        <outlet property="tableView" destination="86D-9h-THK" id="pOj-1O-c9f"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iwi-4X-gfb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="293" y="817"/>
+            <point key="canvasLocation" x="293" y="925"/>
         </scene>
         <!--Search Year And Round Controller-->
         <scene sceneID="YLp-aN-ZqV">
@@ -232,17 +223,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <searchBar key="tableHeaderView" contentMode="redraw" id="vmf-19-nyx">
-                            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
-                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                            <textInputTraits key="textInputTraits"/>
-                        </searchBar>
                         <connections>
                             <outlet property="dataSource" destination="Isj-C0-XZd" id="aNI-r7-4md"/>
                             <outlet property="delegate" destination="Isj-C0-XZd" id="0Ck-83-Ti3"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="0uw-bc-fX9"/>
+                    <navigationItem key="navigationItem" id="0uw-bc-fX9">
+                        <nil key="title"/>
+                    </navigationItem>
                     <connections>
                         <segue destination="Tf2-DH-pcY" kind="show" identifier="DetailSearchInfoIdentifier" id="fUV-Qd-vMD"/>
                     </connections>
