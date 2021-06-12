@@ -8,12 +8,7 @@
 import UIKit
 import DropDown
 
-class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-    
-    private let cellIdentifier = "WinnersStatCell"
-    private var races = [Race]()
-    
-    @IBOutlet weak var tableView: UITableView!
+class SearchViewController: SuperTableViewController { // Наслідування
     
     @IBOutlet weak var leftDropDownButton: UIButton!
     @IBOutlet weak var rightDropDownButton: UIButton!
@@ -23,30 +18,30 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     private var selectedYear: Year? {
         didSet {
-            getRacesByYearAndPosition()
+            getRacesByYearAndPosition(year: selectedYear, position: selectedPosition)
         }
     }
     private var selectedPosition: String? {
         didSet {
-            getRacesByYearAndPosition()
+            getRacesByYearAndPosition(year: selectedYear, position: selectedPosition)
         }
     }
     
     private let yearsArray: [String] = {
         var results = ["current"]
         let currentYear = Calendar.current.component(.year, from: Date())
-        results.append(contentsOf: Array(1950...currentYear).reversed().map {String($0)})
+        results.append(contentsOf: (1950...currentYear).reversed().map {String($0)})
         return results
     }()
     
     private let positions: [String] = {
-        var results = Array(1...33).map {String($0)}
+        var results = (1...33).map {String($0)}
         results.append(contentsOf: ["F", "D", "N", "R", "W"])
         return results
     }()
     
     private lazy var leftDropClosure: SelectionClosure = {[unowned self] index, item in
-        self.leftDropDownButton.setTitle(item, for: .normal)
+        self.leftDropDownButton.setTitle(item + " ▼", for: .normal)
         if index == 0 {
             self.selectedYear = .current
         } else {
@@ -55,25 +50,20 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     private lazy var rightDropClosure: SelectionClosure = {[unowned self] _, item in
-        self.rightDropDownButton.setTitle(item, for: .normal)
+        self.rightDropDownButton.setTitle(item + " ▼", for: .normal)
         self.selectedPosition = item
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        delegate = self
         
-        tableView.delegate = self
-        tableView.dataSource = self
-        
-        let cellNib = UINib(nibName: cellIdentifier, bundle: nil)
-        tableView.register(cellNib, forCellReuseIdentifier: cellIdentifier)
-        
-        dropDownViewConfiguration(dropDown: leftDropDown,
+        dropDownConfiguration(dropDown: leftDropDown,
                                   button: leftDropDownButton,
                                   data: yearsArray,
                                   closure: leftDropClosure)
         
-        dropDownViewConfiguration(dropDown: rightDropDown,
+        dropDownConfiguration(dropDown: rightDropDown,
                                   button: rightDropDownButton,
                                   data: positions,
                                   closure: rightDropClosure)
@@ -87,7 +77,7 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         leftDropDown.show()
     }
     
-    func dropDownViewConfiguration(dropDown: DropDown, button: UIButton, data: [String], closure: @escaping SelectionClosure) {
+    private func dropDownConfiguration(dropDown: DropDown, button: UIButton, data: [String], closure: @escaping SelectionClosure) {
         dropDown.anchorView = button
         dropDown.dataSource = data
         dropDown.bottomOffset = CGPoint(x: 0, y: button.bounds.height)
@@ -95,59 +85,10 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         dropDown.direction = .bottom
         dropDown.selectionAction = closure
     }
-    
-    func getRacesByYearAndPosition() {
-        guard let year = selectedYear, let position = selectedPosition else { return }
-        QueryService.makeRequest(route: .position(searchPosition: position, year: year)) { [weak self] (response, error) in
-            guard let self = self else {
-                return
-            }
-            guard error == nil else {
-                print("getRacesByYearAndPosition error: \(error!)")
-                return
-            }
-            guard let list = response else {
-                print("getRacesByYearAndPosition empty")
-                return
-            }
-            
-            DispatchQueue.main.async {
-                self.races = list
-                self.tableView.reloadData()
-            }
-        }
-    }
-    
-    // MARK: - Table view data source
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return races.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? WinnersStatCell else {
-            return UITableViewCell()
-        }
-        cell.configurate(races[indexPath.row])
-        return cell
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        performSegue(withIdentifier: "DetailSearchInfoIdentifier", sender: indexPath)
-    }
-    
-    // MARK: - Navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard segue.identifier == "DetailSearchInfoIdentifier" else {
-            return
-        }
-        guard let detailVC = segue.destination as? DetailRaceInfoViewController else {
-            return
-        }
-        guard let indexPath = sender as? IndexPath else {
-            return
-        }
-        
-        detailVC.race = races[indexPath.row]
-        detailVC.results = races[indexPath.row].results
+}
+
+extension SearchViewController: SuperTableViewDelegate {
+    func presentInNavigationController(_ viewController: DetailRaceInfoViewController) {
+        self.navigationController?.pushViewController(viewController, animated: true)
     }
 }

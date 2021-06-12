@@ -9,11 +9,21 @@ import UIKit
 
 class DetailRaceInfoViewController: UITableViewController {
     
-    let identifierForStaticCell = "DriverPlacesCell"
-    let identifierForDynamicCell = "WinnersStatCell"
+    private let identifierForStaticCell = "DriverPlacesCell"
+    private let identifierForDynamicCell = "WinnersStatCell"
+    private let viewControllerIdentifier = "WebViewController"
     
-    var race: Race?
+    public var race: Race? {
+        didSet {
+            getRace(searchRace: race)
+        }
+    }
     var results = [Results]()
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        self.hidesBottomBarWhenPushed = true
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,27 +34,41 @@ class DetailRaceInfoViewController: UITableViewController {
         tableView.register(cellNib, forCellReuseIdentifier: identifierForDynamicCell)
     }
     
-    func getRace(round: Int, season: Year) {
-        QueryService.makeRequest(route: .round(searchRound: round, year: season)) { [weak self] (response, error) in
-                guard let self = self else {
-                    return
-                }
-                guard error == nil else {
-                    print("getRace error: \(error!)")
-                    return
-                }
-                guard let list = response else {
-                    print("getRace empty")
-                    return
-                }
-                
-                DispatchQueue.main.async {
-                    self.race = list[0]
-                    self.results = list[0].results
-                    self.tableView.reloadData()
-                }
+    private func presentViewController(indexPath: IndexPath) {
+        guard let destinationVC = UIStoryboard.init(name: "Main",
+                                                    bundle: Bundle.main)
+                .instantiateViewController(withIdentifier: viewControllerIdentifier) as? WebViewController else {
+            return
+        }
+        if indexPath.section == 0, let race = race {
+            destinationVC.urlString = race.url
+        } else {
+            destinationVC.urlString = results[indexPath.row].driver.url
+        }
+        self.present(destinationVC, animated: true, completion: nil)
+    }
+    
+    func getRace(searchRace: Race?) {
+        guard let searchRace = searchRace else {return}
+        QueryService.makeRequest(route: .round(searchRound: searchRace.round, year: .previous(searchRace.season))) { [weak self] (response, error) in
+            guard let self = self else {
+                return
+            }
+            guard error == nil else {
+                AlertMessage.showAlert(title: "Error:", message: error!.localizedDescription, controller: self)
+                return
+            }
+            guard let list = response else {
+                print("getRace empty")
+                return
+            }
+            
+            DispatchQueue.main.async {
+                self.results = list[0].results
+                self.tableView.reloadData()
             }
         }
+    }
 }
 
 extension DetailRaceInfoViewController {
@@ -77,17 +101,6 @@ extension DetailRaceInfoViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let url: URL?
-        if indexPath.section == 0 {
-            guard let race = race else { return }
-            url = URL(string: race.url)
-        } else {
-            url = URL(string: results[indexPath.row].driver.url)
-        }
-        
-        if let url = url {
-            UIApplication.shared.open(url)
-        }
-        tableView.deselectRow(at: indexPath, animated: true)
+        presentViewController(indexPath: indexPath)
     }
 }

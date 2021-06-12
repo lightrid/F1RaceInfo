@@ -8,20 +8,6 @@
 import Foundation
 import Alamofire
 
-enum Year {
-    case current
-    case previous(Int)
-    
-    func description() -> String {
-        switch self {
-        case .current:
-            return "current"
-        case .previous(let value):
-            return String(value)
-        }
-    }
-}
-
 enum ApiRequestRouter: URLRequestConvertible {
     
     static let baseURLPath = "https://ergast.com/api/f1"
@@ -31,9 +17,9 @@ enum ApiRequestRouter: URLRequestConvertible {
     
     var path: String {
         switch self {
-        case .position(searchPosition: let searchPosition, year: let year):
+        case let .position(searchPosition, year):
             return "/\(year.description())/results/\(searchPosition).json"
-        case .round(searchRound: let searchRound, year: let year):
+        case let .round(searchRound, year):
             return "/\(year.description())/\(searchRound)/results.json"
         }
     }
