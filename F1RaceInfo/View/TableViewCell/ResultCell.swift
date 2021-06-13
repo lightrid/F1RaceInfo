@@ -7,7 +7,7 @@
 
 import UIKit
 
-class WinnersStatCell: UITableViewCell {
+class ResultCell: UITableViewCell {
 
     @IBOutlet weak var pilotNameLabel: UILabel!
     @IBOutlet weak var pilotPositionLabel: UILabel!

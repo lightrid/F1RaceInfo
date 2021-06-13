@@ -16,6 +16,7 @@
 		B73FE36926752DD400747D25 /* Enumerations.swift in Sources */ = {isa = PBXBuildFile; fileRef = B73FE36826752DD400747D25 /* Enumerations.swift */; };
 		B73FE36E267531CA00747D25 /* ActivityCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B73FE36D267531CA00747D25 /* ActivityCell.xib */; };
 		B73FE3712675321C00747D25 /* ActivityCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B73FE3702675321C00747D25 /* ActivityCell.swift */; };
+		B74CCF6D26755C36000C152E /* Identifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = B74CCF6C26755C36000C152E /* Identifiers.swift */; };
 		B776A067266EB86E00FE7532 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B776A066266EB86E00FE7532 /* AppDelegate.swift */; };
 		B776A069266EB86E00FE7532 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B776A068266EB86E00FE7532 /* SceneDelegate.swift */; };
 		B776A06E266EB86E00FE7532 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B776A06C266EB86E00FE7532 /* Main.storyboard */; };
@@ -24,8 +25,8 @@
 		B776A089266EBFE900FE7532 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = B776A088266EBFE900FE7532 /* .swiftlint.yml */; };
 		B77716C226739F2A005938C8 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77716C126739F2A005938C8 /* SearchViewController.swift */; };
 		B77716CC2673F1D8005938C8 /* SuperTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77716CB2673F1D7005938C8 /* SuperTableViewController.swift */; };
-		B777BB342670BFC700A48B55 /* WinnersStatCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B777BB332670BFC700A48B55 /* WinnersStatCell.xib */; };
-		B777BB372670C26A00A48B55 /* WinnersStatCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B777BB362670C26A00A48B55 /* WinnersStatCell.swift */; };
+		B777BB342670BFC700A48B55 /* ResultCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B777BB332670BFC700A48B55 /* ResultCell.xib */; };
+		B777BB372670C26A00A48B55 /* ResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B777BB362670C26A00A48B55 /* ResultCell.swift */; };
 		B777BB3A2670C65300A48B55 /* FormulaData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B777BB392670C65300A48B55 /* FormulaData.swift */; };
 		B777BB432670CC7200A48B55 /* QueryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B777BB422670CC7200A48B55 /* QueryService.swift */; };
 		B777BB4826715A0900A48B55 /* DriverPlacesCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B777BB4726715A0900A48B55 /* DriverPlacesCell.xib */; };
@@ -46,6 +47,7 @@
 		B73FE36826752DD400747D25 /* Enumerations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enumerations.swift; sourceTree = "<group>"; };
 		B73FE36D267531CA00747D25 /* ActivityCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ActivityCell.xib; sourceTree = "<group>"; };
 		B73FE3702675321C00747D25 /* ActivityCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityCell.swift; sourceTree = "<group>"; };
+		B74CCF6C26755C36000C152E /* Identifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Identifiers.swift; sourceTree = "<group>"; };
 		B776A063266EB86E00FE7532 /* F1RaceInfo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = F1RaceInfo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B776A066266EB86E00FE7532 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B776A068266EB86E00FE7532 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -56,8 +58,8 @@
 		B776A088266EBFE900FE7532 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		B77716C126739F2A005938C8 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		B77716CB2673F1D7005938C8 /* SuperTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuperTableViewController.swift; sourceTree = "<group>"; };
-		B777BB332670BFC700A48B55 /* WinnersStatCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WinnersStatCell.xib; sourceTree = "<group>"; };
-		B777BB362670C26A00A48B55 /* WinnersStatCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WinnersStatCell.swift; sourceTree = "<group>"; };
+		B777BB332670BFC700A48B55 /* ResultCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ResultCell.xib; sourceTree = "<group>"; };
+		B777BB362670C26A00A48B55 /* ResultCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultCell.swift; sourceTree = "<group>"; };
 		B777BB392670C65300A48B55 /* FormulaData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormulaData.swift; sourceTree = "<group>"; };
 		B777BB422670CC7200A48B55 /* QueryService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueryService.swift; sourceTree = "<group>"; };
 		B777BB4726715A0900A48B55 /* DriverPlacesCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DriverPlacesCell.xib; sourceTree = "<group>"; };
@@ -86,6 +88,19 @@
 				919C58755B6026E2558A9CBA /* Pods-F1RaceInfo.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		B73FE37526755A3A00747D25 /* TableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				B777BB332670BFC700A48B55 /* ResultCell.xib */,
+				B777BB362670C26A00A48B55 /* ResultCell.swift */,
+				B777BB4726715A0900A48B55 /* DriverPlacesCell.xib */,
+				B777BB4A267160BE00A48B55 /* DriverPlacesCell.swift */,
+				B73FE36D267531CA00747D25 /* ActivityCell.xib */,
+				B73FE3702675321C00747D25 /* ActivityCell.swift */,
+			);
+			path = TableViewCell;
 			sourceTree = "<group>";
 		};
 		B776A05A266EB86E00FE7532 = {
@@ -126,6 +141,7 @@
 				B73FE34F2674DAB500747D25 /* Race.swift */,
 				B73FE3522674DAC000747D25 /* Driver.swift */,
 				B73FE36826752DD400747D25 /* Enumerations.swift */,
+				B74CCF6C26755C36000C152E /* Identifiers.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -133,13 +149,8 @@
 		B776A07F266EBB8600FE7532 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				B777BB332670BFC700A48B55 /* WinnersStatCell.xib */,
-				B777BB362670C26A00A48B55 /* WinnersStatCell.swift */,
-				B777BB4726715A0900A48B55 /* DriverPlacesCell.xib */,
-				B777BB4A267160BE00A48B55 /* DriverPlacesCell.swift */,
+				B73FE37526755A3A00747D25 /* TableViewCell */,
 				B73FE3652675268500747D25 /* AlertMessage.swift */,
-				B73FE36D267531CA00747D25 /* ActivityCell.xib */,
-				B73FE3702675321C00747D25 /* ActivityCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -248,7 +259,7 @@
 			files = (
 				B776A089266EBFE900FE7532 /* .swiftlint.yml in Resources */,
 				B777BB4826715A0900A48B55 /* DriverPlacesCell.xib in Resources */,
-				B777BB342670BFC700A48B55 /* WinnersStatCell.xib in Resources */,
+				B777BB342670BFC700A48B55 /* ResultCell.xib in Resources */,
 				B776A073266EB87900FE7532 /* LaunchScreen.storyboard in Resources */,
 				B776A070266EB87900FE7532 /* Assets.xcassets in Resources */,
 				B776A06E266EB86E00FE7532 /* Main.storyboard in Resources */,
@@ -323,7 +334,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B73FE3532674DAC000747D25 /* Driver.swift in Sources */,
-				B777BB372670C26A00A48B55 /* WinnersStatCell.swift in Sources */,
+				B777BB372670C26A00A48B55 /* ResultCell.swift in Sources */,
 				B73FE3662675268500747D25 /* AlertMessage.swift in Sources */,
 				B77716C226739F2A005938C8 /* SearchViewController.swift in Sources */,
 				B7797D252670007300807A2F /* DetailRaceInfoViewController.swift in Sources */,
@@ -331,6 +342,7 @@
 				B73FE3712675321C00747D25 /* ActivityCell.swift in Sources */,
 				B77716CC2673F1D8005938C8 /* SuperTableViewController.swift in Sources */,
 				B777BB3A2670C65300A48B55 /* FormulaData.swift in Sources */,
+				B74CCF6D26755C36000C152E /* Identifiers.swift in Sources */,
 				B73FE3502674DAB500747D25 /* Race.swift in Sources */,
 				B73FE36926752DD400747D25 /* Enumerations.swift in Sources */,
 				B73FE34D2674C59C00747D25 /* CurrentYearViewController.swift in Sources */,

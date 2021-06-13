@@ -48,7 +48,5 @@ struct Race: Decodable {
         self.results = try container.decode([Results].self, forKey: .results)
         self.raceName = try container.decode(String.self, forKey: .raceName)
         self.url = try container.decode(String.self, forKey: .url)
-        
     }
-    
 }
