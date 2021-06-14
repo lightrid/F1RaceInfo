@@ -8,7 +8,11 @@
 import UIKit
 import DropDown
 
-class SearchViewController: SuperTableViewController { // Наслідування
+class SearchViewController: UIViewController { 
+    
+    private var tableViewController = SuperTableViewController()
+    
+    @IBOutlet weak var tableView: UITableView!
     
     @IBOutlet weak var leftDropDownButton: UIButton!
     @IBOutlet weak var rightDropDownButton: UIButton!
@@ -18,12 +22,12 @@ class SearchViewController: SuperTableViewController { // Наслідуванн
     
     private var selectedYear: Year? {
         didSet {
-            getRacesByYearAndPosition(year: selectedYear, position: selectedPosition)
+            tableViewController.getRacesByYearAndPosition(year: selectedYear, position: selectedPosition)
         }
     }
     private var selectedPosition: String? {
         didSet {
-            getRacesByYearAndPosition(year: selectedYear, position: selectedPosition)
+            tableViewController.getRacesByYearAndPosition(year: selectedYear, position: selectedPosition)
         }
     }
     
@@ -56,7 +60,10 @@ class SearchViewController: SuperTableViewController { // Наслідуванн
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        delegate = self
+        tableViewController.delegate = self
+        tableViewController.tableView = tableView
+        tableViewController.viewDidLoad()
+        
         
         dropDownConfiguration(dropDown: leftDropDown,
                                   button: leftDropDownButton,

@@ -15,10 +15,6 @@ struct AlertMessage {
             if let controller = controller {
                 controller.present(alertVC, animated: true)
             }
-//            else {
-//                let viewController = UIApplication.shared.windows.first!.rootViewController!
-//                viewController.present(alertVC, animated: true)
-//            }
         }
     }
 }

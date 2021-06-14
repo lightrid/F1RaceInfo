@@ -240,7 +240,7 @@
                     <connections>
                         <outlet property="leftDropDownButton" destination="Rbj-WM-39f" id="eP5-fb-wBo"/>
                         <outlet property="rightDropDownButton" destination="n92-KS-Kfk" id="QVi-9v-qQw"/>
-                        <outlet property="tableView" destination="86D-9h-THK" id="SgR-bZ-kUt"/>
+                        <outlet property="tableView" destination="86D-9h-THK" id="LiF-UL-ZoB"/>
                         <segue destination="Tf2-DH-pcY" kind="show" identifier="onlyUI" id="35C-Py-B4O"/>
                     </connections>
                 </viewController>

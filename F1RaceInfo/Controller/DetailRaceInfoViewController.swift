@@ -8,12 +8,7 @@
 import UIKit
 
 class DetailRaceInfoViewController: UITableViewController {
-    public var race: Race? {
-        didSet {
-            getRace(searchRace: race)
-        }
-    }
-    // var results = [Results]()
+    public var race: Race?
     
     private(set) var state: State = .loading {
         didSet {
@@ -35,6 +30,8 @@ class DetailRaceInfoViewController: UITableViewController {
         tableView.register(cellNib, forCellReuseIdentifier: Identifiers.resultCell)
         cellNib = UINib(nibName: Identifiers.activityCell, bundle: nil)
         tableView.register(cellNib, forCellReuseIdentifier: Identifiers.activityCell)
+        
+        getRace(searchRace: race)
     }
     
     private func presentViewController(indexPath: IndexPath) {
