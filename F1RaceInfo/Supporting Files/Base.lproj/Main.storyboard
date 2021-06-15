@@ -175,28 +175,19 @@
                                     <constraint firstItem="Rbj-WM-39f" firstAttribute="leading" secondItem="2KA-Tx-S4X" secondAttribute="leading" id="uh9-Ak-L1u"/>
                                 </constraints>
                             </stackView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="86D-9h-THK">
-                                <rect key="frame" x="0.0" y="137" width="414" height="759"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                            </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="bL8-NB-lnh"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="2KA-Tx-S4X" firstAttribute="top" secondItem="bL8-NB-lnh" secondAttribute="top" constant="10" id="2n7-22-mGm"/>
                             <constraint firstItem="bL8-NB-lnh" firstAttribute="trailing" secondItem="2KA-Tx-S4X" secondAttribute="trailing" constant="64" id="EdE-tg-sWL"/>
-                            <constraint firstItem="bL8-NB-lnh" firstAttribute="trailing" secondItem="86D-9h-THK" secondAttribute="trailing" id="Hcf-3b-BtO"/>
                             <constraint firstItem="2KA-Tx-S4X" firstAttribute="leading" secondItem="bL8-NB-lnh" secondAttribute="leading" constant="64" id="Mpg-TC-y21"/>
-                            <constraint firstAttribute="bottom" secondItem="86D-9h-THK" secondAttribute="bottom" id="Sh7-4w-2qA"/>
-                            <constraint firstItem="86D-9h-THK" firstAttribute="top" secondItem="2KA-Tx-S4X" secondAttribute="bottom" constant="6" id="YKW-XD-mLG"/>
-                            <constraint firstItem="86D-9h-THK" firstAttribute="leading" secondItem="bL8-NB-lnh" secondAttribute="leading" id="wzK-YZ-La9"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="YUf-b9-X2Q"/>
                     <connections>
                         <outlet property="leftDropDownButton" destination="Rbj-WM-39f" id="eP5-fb-wBo"/>
                         <outlet property="rightDropDownButton" destination="n92-KS-Kfk" id="QVi-9v-qQw"/>
-                        <outlet property="tableView" destination="86D-9h-THK" id="LiF-UL-ZoB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iwi-4X-gfb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -215,7 +206,7 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="zEB-6b-cvn" kind="relationship" relationship="rootViewController" id="faG-sv-lyE"/>
+                        <segue destination="mcd-ce-Wj8" kind="relationship" relationship="rootViewController" id="szQ-yV-rKH"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4jv-K7-eh2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -223,23 +214,20 @@
             <point key="canvasLocation" x="293" y="198"/>
         </scene>
         <!--Current Year View Controller-->
-        <scene sceneID="tdg-tJ-TdL">
+        <scene sceneID="sUm-aV-nTq">
             <objects>
-                <tableViewController id="zEB-6b-cvn" customClass="CurrentYearViewController" customModule="F1RaceInfo" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Zyl-hF-bmL">
+                <viewController id="mcd-ce-Wj8" customClass="CurrentYearViewController" customModule="F1RaceInfo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="bM3-9z-Nk4">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="jeu-AF-9Ni"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <connections>
-                            <outlet property="dataSource" destination="zEB-6b-cvn" id="ae4-II-5hT"/>
-                            <outlet property="delegate" destination="zEB-6b-cvn" id="Cg2-Wb-Adb"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" id="lz0-J6-HWo"/>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="GmK-z2-QZU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="6LO-cS-77I"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4xE-nM-hXA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1203" y="198"/>
+            <point key="canvasLocation" x="1120" y="198"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="epW-zm-bKv">

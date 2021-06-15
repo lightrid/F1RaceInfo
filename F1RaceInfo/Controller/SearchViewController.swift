@@ -11,21 +11,22 @@ import DropDown
 class SearchViewController: UIViewController {
     
     // MARK: - IBOutlets
-    @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var leftDropDownButton: UIButton!
     @IBOutlet weak var rightDropDownButton: UIButton!
     
     // MARK: - Properties
-    private var tableViewController = SuperTableViewController() // Композиція
+    private lazy var tableViewController = SuperTableViewController() // Композиція
     
     private let leftDropDown = DropDown()
     private let rightDropDown = DropDown()
     
     private var selectedValues: (year: Year?, position: String?) {
         didSet {
-            tableViewController.getRacesByYearAndPosition(year: selectedValues.year, position: selectedValues.position)
+            tableViewController.getRacesByYearAndPosition(year: selectedValues.year,
+                                                          position: selectedValues.position)
         }
     }
+    
     private let yearsArray: [String] = {
         var results = ["current"]
         let currentYear = Calendar.current.component(.year, from: Date())
@@ -44,7 +45,7 @@ class SearchViewController: UIViewController {
         if index == 0 {
             self.selectedValues.year = .current
         } else {
-            self.selectedValues.year = .previous((Int(item) ?? 0))
+            self.selectedValues.year = .previous((Int(item) ?? 2021))
         }
     }
     
@@ -56,19 +57,36 @@ class SearchViewController: UIViewController {
     // MARK: - View lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableViewController.delegate = self
-        tableViewController.tableView = tableView
-        tableViewController.viewDidLoad()
+        addChildViewController()
         
         dropDownConfiguration(dropDown: leftDropDown,
-                                  button: leftDropDownButton,
-                                  data: yearsArray,
-                                  closure: leftDropClosure)
+                              button: leftDropDownButton,
+                              data: yearsArray,
+                              closure: leftDropClosure)
         
         dropDownConfiguration(dropDown: rightDropDown,
-                                  button: rightDropDownButton,
-                                  data: positions,
-                                  closure: rightDropClosure)
+                              button: rightDropDownButton,
+                              data: positions,
+                              closure: rightDropClosure)
+    }
+    
+    private func addChildViewController() {
+        addChild(tableViewController)
+        view.addSubview(tableViewController.view)
+        setChildConstraint()
+        tableViewController.didMove(toParent: self)
+    }
+    
+    private func setChildConstraint() {
+        let buttonBottomPosition = leftDropDownButton.bottomAnchor
+        tableViewController.view.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            tableViewController.view.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
+            tableViewController.view.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
+            tableViewController.view.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+            tableViewController.view.topAnchor.constraint(equalTo: buttonBottomPosition, constant: 10)
+        ])
     }
     
     // MARK: - IBActions

@@ -7,14 +7,22 @@
 
 import UIKit
 
-class CurrentYearViewController: SuperTableViewController { // Наслідування
+class CurrentYearViewController: UIViewController {
+    
+    private lazy var tableViewController = SuperTableViewController()
     
     // MARK: - View lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        delegate = self
-        getRacesByYearAndPosition(year: .current, position: "1")
-        
+        addChildViewController()
+        tableViewController.getRacesByYearAndPosition(year: .current, position: "1")
+    }
+    
+    private func addChildViewController() {
+        addChild(tableViewController)
+        view.addSubview(tableViewController.view)
+        tableViewController.view.frame = view.bounds
+        tableViewController.didMove(toParent: self)
     }
 }
 

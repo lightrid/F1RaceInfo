@@ -16,7 +16,7 @@ class SuperTableViewController: UITableViewController {
     weak var delegate: SuperTableViewDelegate?
     
     // MARK: - Properties
-    var state: State = .notSearchedYet {
+    public var state: State = .notSearchedYet {
         didSet {
             tableView.reloadData()
         }
