@@ -21,9 +21,14 @@ enum Year {
     }
 }
 
+enum ResultType {
+    case race([Race])
+    case result([Results])
+}
+
 enum State {
     case notSearchedYet
     case loading
     case noResult
-    case results([Race])
+    case results(ResultType)
 }

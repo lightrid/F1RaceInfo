@@ -8,29 +8,24 @@
 import UIKit
 import DropDown
 
-class SearchViewController: UIViewController { 
+class SearchViewController: UIViewController {
     
-    private var tableViewController = SuperTableViewController()
-    
+    // MARK: - IBOutlets
     @IBOutlet weak var tableView: UITableView!
-    
     @IBOutlet weak var leftDropDownButton: UIButton!
     @IBOutlet weak var rightDropDownButton: UIButton!
+    
+    // MARK: - Properties
+    private var tableViewController = SuperTableViewController() // Композиція
     
     private let leftDropDown = DropDown()
     private let rightDropDown = DropDown()
     
-    private var selectedYear: Year? {
+    private var selectedValues: (year: Year?, position: String?) {
         didSet {
-            tableViewController.getRacesByYearAndPosition(year: selectedYear, position: selectedPosition)
+            tableViewController.getRacesByYearAndPosition(year: selectedValues.year, position: selectedValues.position)
         }
     }
-    private var selectedPosition: String? {
-        didSet {
-            tableViewController.getRacesByYearAndPosition(year: selectedYear, position: selectedPosition)
-        }
-    }
-    
     private let yearsArray: [String] = {
         var results = ["current"]
         let currentYear = Calendar.current.component(.year, from: Date())
@@ -47,23 +42,23 @@ class SearchViewController: UIViewController {
     private lazy var leftDropClosure: SelectionClosure = {[unowned self] index, item in
         self.leftDropDownButton.setTitle(item + " ▼", for: .normal)
         if index == 0 {
-            self.selectedYear = .current
+            self.selectedValues.year = .current
         } else {
-            self.selectedYear = .previous((Int(item) ?? 0))
+            self.selectedValues.year = .previous((Int(item) ?? 0))
         }
     }
     
     private lazy var rightDropClosure: SelectionClosure = {[unowned self] _, item in
         self.rightDropDownButton.setTitle(item + " ▼", for: .normal)
-        self.selectedPosition = item
+        self.selectedValues.position = item
     }
     
+    // MARK: - View lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         tableViewController.delegate = self
         tableViewController.tableView = tableView
         tableViewController.viewDidLoad()
-        
         
         dropDownConfiguration(dropDown: leftDropDown,
                                   button: leftDropDownButton,
@@ -76,6 +71,7 @@ class SearchViewController: UIViewController {
                                   closure: rightDropClosure)
     }
     
+    // MARK: - IBActions
     @IBAction func rightDropDownButtonAction() {
         rightDropDown.show()
     }
@@ -84,6 +80,7 @@ class SearchViewController: UIViewController {
         leftDropDown.show()
     }
     
+    // MARK: - Methods
     private func dropDownConfiguration(dropDown: DropDown, button: UIButton, data: [String], closure: @escaping SelectionClosure) {
         dropDown.anchorView = button
         dropDown.dataSource = data
@@ -94,8 +91,9 @@ class SearchViewController: UIViewController {
     }
 }
 
+// MARK: - Super Table View Delegate
 extension SearchViewController: SuperTableViewDelegate {
-    func presentInNavigationController(_ viewController: DetailRaceInfoViewController) {
+    func presentInNavigationController(_ viewController: UIViewController) {
         self.navigationController?.pushViewController(viewController, animated: true)
     }
 }

@@ -1,8 +1,8 @@
 //
-//  Driver.swift
+//  FormulaData.swift
 //  F1RaceInfo
 //
-//  Created by Mykhailo Kviatkovskyi on 09.06.2021.
+//  Created by Mykhailo Kviatkovskyi on 12.06.2021.
 //
 
 import Foundation
@@ -14,6 +14,7 @@ struct FormulaData: Decodable {
         case mrData = "MRData"
     }
 }
+
 struct MRData: Decodable {
     var xmlns: String
     var series: String

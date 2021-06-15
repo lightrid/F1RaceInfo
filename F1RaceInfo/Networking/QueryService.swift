@@ -38,7 +38,6 @@ typealias RaceResponse = (_ response: [Race]?, _ error: Error?) -> Void
 struct QueryService {
     
     public static func makeRequest(route: ApiRequestRouter, completion: @escaping RaceResponse) {
-        print(route)
         AF.request(route).validate().responseDecodable(of: FormulaData.self) { response in
             print(response.value as Any)
             completion(response.value?.mrData.raceTable?.races, response.error)

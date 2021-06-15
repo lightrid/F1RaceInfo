@@ -8,9 +8,8 @@
 import Foundation
 
 struct Identifiers {
-    static let detailView = "DetaiViewController"
+    static let detailView = "DetailViewController"
     static let webView = "WebViewController"
     static let resultCell = "ResultCell"
     static let activityCell = "ActivityCell"
-    static let staticCell = "DriverPlacesCell"
 }

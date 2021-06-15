@@ -24,7 +24,7 @@
                     <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="Hvr-ZB-bDU">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="80"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="80" id="IRY-1q-oZE"/>
+                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="80" id="IRY-1q-oZE"/>
                         </constraints>
                     </activityIndicatorView>
                 </subviews>

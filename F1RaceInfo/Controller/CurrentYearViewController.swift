@@ -7,23 +7,20 @@
 
 import UIKit
 
-class CurrentYearViewController: UIViewController {
-
-    @IBOutlet weak var tableView: UITableView!
+class CurrentYearViewController: SuperTableViewController { // Наслідування
     
-    private var tableViewController = SuperTableViewController() // Композиція
-
+    // MARK: - View lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableViewController.delegate = self
-        tableViewController.tableView = tableView
-        tableViewController.viewDidLoad()
-        tableViewController.getRacesByYearAndPosition(year: .current, position: "1")
+        delegate = self
+        getRacesByYearAndPosition(year: .current, position: "1")
+        
     }
 }
 
+// MARK: - Super Table View Delegate
 extension CurrentYearViewController: SuperTableViewDelegate {
-    func presentInNavigationController(_ viewController: DetailRaceInfoViewController) {
+    func presentInNavigationController(_ viewController: UIViewController) {
         self.navigationController?.pushViewController(viewController, animated: true)
     }
 }

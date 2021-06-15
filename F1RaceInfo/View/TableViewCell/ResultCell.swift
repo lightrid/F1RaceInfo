@@ -2,7 +2,7 @@
 //  WinnersStatCell.swift
 //  F1RaceInfo
 //
-//  Created by Mykhailo Kviatkovskyi on 09.06.2021.
+//  Created by Mykhailo Kviatkovskyi on 12.06.2021.
 //
 
 import UIKit
@@ -15,7 +15,7 @@ class ResultCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-       cellStyle()
+       
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -29,15 +29,24 @@ class ResultCell: UITableViewCell {
         self.accessoryType = .disclosureIndicator
     }
     
-    func configurate(_ race: Race) {
+    private func resultCellStyle() {
+        pilotNameLabel.font =  .boldSystemFont(ofSize: 20)
+        pilotPositionLabel.font = .systemFont(ofSize: 20)
+        racePlaceNameLabel.font = .systemFont(ofSize: 17)
+        self.accessoryType = .disclosureIndicator
+    }
+    
+    public func configurate(_ race: Race) {
+        cellStyle()
         pilotPositionLabel.text = race.results[0].driver.permanentNumber
         pilotNameLabel.text = race.results[0].driver.firstName + " " + race.results[0].driver.lastName
         racePlaceNameLabel.text = race.raceName
     }
     
-    func configurate(_ result: Results) {
-        pilotPositionLabel.text = result.driver.permanentNumber
-        pilotNameLabel.text = result.driver.firstName + " " + result.driver.lastName
+    public func configurate(_ result: Results) {
+        resultCellStyle()
+        pilotPositionLabel.text = result.driver.firstName + " " + result.driver.lastName
+        pilotNameLabel.text = result.driver.permanentNumber
         racePlaceNameLabel.text = result.time?.time
     }
 }
