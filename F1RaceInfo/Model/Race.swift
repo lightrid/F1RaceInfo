@@ -37,16 +37,26 @@ struct Race: Decodable {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         
         let seasonString = try container.decode(String.self, forKey: .season)
-        self.season = Int(seasonString) ?? 0
-        
         let roundString = try container.decode(String.self, forKey: .round)
-        self.round = Int(roundString) ?? 0
-        
         let dateString =  try container.decode(String.self, forKey: .date)
-        self.date = Race.formatter.date(from: dateString) ?? Date()
         
-        self.results = try container.decode([Results].self, forKey: .results)
-        self.raceName = try container.decode(String.self, forKey: .raceName)
-        self.url = try container.decode(String.self, forKey: .url)
+        guard let seasonInt = Int(seasonString), let roundInt = Int(roundString) else {
+            let context = DecodingError.Context(codingPath: container.codingPath,
+                                                debugDescription: "Could not parse json key to a Int object")
+            throw DecodingError.dataCorrupted(context)
+        }
+        guard let date = Race.formatter.date(from: dateString) else {
+            let context = DecodingError.Context(codingPath: container.codingPath,
+                                                debugDescription: "Could not parse json key to a Date object")
+            throw DecodingError.dataCorrupted(context)
+        }
+        
+        season = seasonInt
+        round = roundInt
+        self.date = date
+        
+        results = try container.decode([Results].self, forKey: .results)
+        raceName = try container.decode(String.self, forKey: .raceName)
+        url = try container.decode(String.self, forKey: .url)
     }
 }
