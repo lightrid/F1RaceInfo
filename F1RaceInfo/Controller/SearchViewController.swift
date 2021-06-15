@@ -58,6 +58,7 @@ class SearchViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         addChildViewController()
+        tableViewController.delegate = self
         
         dropDownConfiguration(dropDown: leftDropDown,
                               button: leftDropDownButton,

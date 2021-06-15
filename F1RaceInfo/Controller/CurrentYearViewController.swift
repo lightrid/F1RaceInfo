@@ -15,6 +15,7 @@ class CurrentYearViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         addChildViewController()
+        tableViewController.delegate = self
         tableViewController.getRacesByYearAndPosition(year: .current, position: "1")
     }
     
