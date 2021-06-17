@@ -10,26 +10,33 @@ import UIKit
 class DetailViewController: UITableViewController {
     // MARK: - Properties
     public var race: Race?
-    private var superTableView = SuperTableViewController()
-    
+    private lazy var superTableView = SuperTableViewController()
+ 
     // MARK: - IBOutlets
     @IBOutlet weak var staticCell: UITableViewCell!
-    @IBOutlet weak var resultTableView: UITableView!
+    @IBOutlet weak var containerView: UIView!
     
     // MARK: - View lifecycle
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         self.hidesBottomBarWhenPushed = true
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        superTableView.tableView = resultTableView
-        superTableView.viewDidLoad()
+        addChildViewController()
         superTableView.state = .loading
         
         configureStaticCell()
         
         getRace(searchRace: race)
+    }
+    
+    private func addChildViewController() {
+        addChild(superTableView)
+        containerView.addSubview(superTableView.view)
+        superTableView.view.frame = containerView.bounds
+        superTableView.didMove(toParent: self)
     }
     
     // MARK: - Methods

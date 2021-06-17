@@ -84,18 +84,6 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="vSW-cV-9nB" id="TPc-SB-ntl">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="gzw-mC-4Ph">
-                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
-                                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                                </tableView>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstItem="gzw-mC-4Ph" firstAttribute="top" secondItem="TPc-SB-ntl" secondAttribute="top" id="Ms1-wy-70S"/>
-                                                <constraint firstAttribute="trailing" secondItem="gzw-mC-4Ph" secondAttribute="trailing" id="kOY-zo-xlk"/>
-                                                <constraint firstAttribute="bottom" secondItem="gzw-mC-4Ph" secondAttribute="bottom" id="rc9-Lc-kIn"/>
-                                                <constraint firstItem="gzw-mC-4Ph" firstAttribute="leading" secondItem="TPc-SB-ntl" secondAttribute="leading" id="tlM-s7-icg"/>
-                                            </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </cells>
@@ -108,7 +96,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Details" id="tPP-4g-aov"/>
                     <connections>
-                        <outlet property="resultTableView" destination="gzw-mC-4Ph" id="loo-Eh-HIv"/>
+                        <outlet property="containerView" destination="TPc-SB-ntl" id="NYh-dt-7r0"/>
                         <outlet property="staticCell" destination="B2f-Vw-Qk6" id="aeb-Cd-Xvm"/>
                     </connections>
                 </tableViewController>
