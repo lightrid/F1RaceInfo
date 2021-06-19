@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1C4EBB12DD16F7CA60AC9084 /* Pods_FormulaOne.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B03E5030F52C69DCD63F6ED /* Pods_FormulaOne.framework */; };
 		B73FE34D2674C59C00747D25 /* CurrentYearViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B73FE34C2674C59C00747D25 /* CurrentYearViewController.swift */; };
 		B73FE3502674DAB500747D25 /* Race.swift in Sources */ = {isa = PBXBuildFile; fileRef = B73FE34F2674DAB500747D25 /* Race.swift */; };
 		B73FE3532674DAC000747D25 /* Driver.swift in Sources */ = {isa = PBXBuildFile; fileRef = B73FE3522674DAC000747D25 /* Driver.swift */; };
@@ -30,12 +31,13 @@
 		B777BB372670C26A00A48B55 /* ResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B777BB362670C26A00A48B55 /* ResultCell.swift */; };
 		B777BB3A2670C65300A48B55 /* FormulaData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B777BB392670C65300A48B55 /* FormulaData.swift */; };
 		B777BB432670CC7200A48B55 /* QueryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B777BB422670CC7200A48B55 /* QueryService.swift */; };
-		C16CF70BE4683EBDD14B5F24 /* Pods_F1RaceInfo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC7955095DDC630FE398F29A /* Pods_F1RaceInfo.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		3C5B1F1287E438E566950DA5 /* Pods-F1RaceInfo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-F1RaceInfo.debug.xcconfig"; path = "Target Support Files/Pods-F1RaceInfo/Pods-F1RaceInfo.debug.xcconfig"; sourceTree = "<group>"; };
+		6B03E5030F52C69DCD63F6ED /* Pods_FormulaOne.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FormulaOne.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		919C58755B6026E2558A9CBA /* Pods-F1RaceInfo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-F1RaceInfo.release.xcconfig"; path = "Target Support Files/Pods-F1RaceInfo/Pods-F1RaceInfo.release.xcconfig"; sourceTree = "<group>"; };
+		AEBA2254EB736AD37D101B52 /* Pods-FormulaOne.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FormulaOne.debug.xcconfig"; path = "Target Support Files/Pods-FormulaOne/Pods-FormulaOne.debug.xcconfig"; sourceTree = "<group>"; };
 		B73FE34C2674C59C00747D25 /* CurrentYearViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentYearViewController.swift; sourceTree = "<group>"; };
 		B73FE34F2674DAB500747D25 /* Race.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Race.swift; sourceTree = "<group>"; };
 		B73FE3522674DAC000747D25 /* Driver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Driver.swift; sourceTree = "<group>"; };
@@ -47,7 +49,7 @@
 		B73FE3702675321C00747D25 /* ActivityCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityCell.swift; sourceTree = "<group>"; };
 		B74CCF6C26755C36000C152E /* Identifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Identifiers.swift; sourceTree = "<group>"; };
 		B7766A7D2677B81B0006B628 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
-		B776A063266EB86E00FE7532 /* F1RaceInfo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = F1RaceInfo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B776A063266EB86E00FE7532 /* FormulaOne.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FormulaOne.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B776A066266EB86E00FE7532 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B776A068266EB86E00FE7532 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		B776A06D266EB86E00FE7532 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -61,7 +63,8 @@
 		B777BB362670C26A00A48B55 /* ResultCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultCell.swift; sourceTree = "<group>"; };
 		B777BB392670C65300A48B55 /* FormulaData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormulaData.swift; sourceTree = "<group>"; };
 		B777BB422670CC7200A48B55 /* QueryService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueryService.swift; sourceTree = "<group>"; };
-		DC7955095DDC630FE398F29A /* Pods_F1RaceInfo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_F1RaceInfo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B7E2ED5E267D2B6400AA9F73 /* DropDown.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = DropDown.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CC925FC98F87170488B8B470 /* Pods-FormulaOne.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FormulaOne.release.xcconfig"; path = "Target Support Files/Pods-FormulaOne/Pods-FormulaOne.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,7 +73,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B73FE361267515BE00747D25 /* WebKit.framework in Frameworks */,
-				C16CF70BE4683EBDD14B5F24 /* Pods_F1RaceInfo.framework in Frameworks */,
+				1C4EBB12DD16F7CA60AC9084 /* Pods_FormulaOne.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -82,6 +85,8 @@
 			children = (
 				3C5B1F1287E438E566950DA5 /* Pods-F1RaceInfo.debug.xcconfig */,
 				919C58755B6026E2558A9CBA /* Pods-F1RaceInfo.release.xcconfig */,
+				AEBA2254EB736AD37D101B52 /* Pods-FormulaOne.debug.xcconfig */,
+				CC925FC98F87170488B8B470 /* Pods-FormulaOne.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -101,7 +106,7 @@
 			isa = PBXGroup;
 			children = (
 				B776A088266EBFE900FE7532 /* .swiftlint.yml */,
-				B776A065266EB86E00FE7532 /* F1RaceInfo */,
+				B776A065266EB86E00FE7532 /* FormulaOne */,
 				B776A064266EB86E00FE7532 /* Products */,
 				9C02EABBF72F802DE5BFAD64 /* Pods */,
 				DD12B98D6E82922FC3B809D8 /* Frameworks */,
@@ -111,12 +116,12 @@
 		B776A064266EB86E00FE7532 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				B776A063266EB86E00FE7532 /* F1RaceInfo.app */,
+				B776A063266EB86E00FE7532 /* FormulaOne.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		B776A065266EB86E00FE7532 /* F1RaceInfo */ = {
+		B776A065266EB86E00FE7532 /* FormulaOne */ = {
 			isa = PBXGroup;
 			children = (
 				B776A082266EBBAE00FE7532 /* Supporting Files */,
@@ -125,7 +130,7 @@
 				B776A07F266EBB8600FE7532 /* View */,
 				B776A07E266EBB8100FE7532 /* Model */,
 			);
-			path = F1RaceInfo;
+			path = FormulaOne;
 			sourceTree = "<group>";
 		};
 		B776A07E266EBB8100FE7532 /* Model */ = {
@@ -185,8 +190,9 @@
 		DD12B98D6E82922FC3B809D8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B7E2ED5E267D2B6400AA9F73 /* DropDown.framework */,
 				B73FE35E2675159100747D25 /* WebKit.framework */,
-				DC7955095DDC630FE398F29A /* Pods_F1RaceInfo.framework */,
+				6B03E5030F52C69DCD63F6ED /* Pods_FormulaOne.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -194,9 +200,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		B776A062266EB86E00FE7532 /* F1RaceInfo */ = {
+		B776A062266EB86E00FE7532 /* FormulaOne */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = B776A077266EB87900FE7532 /* Build configuration list for PBXNativeTarget "F1RaceInfo" */;
+			buildConfigurationList = B776A077266EB87900FE7532 /* Build configuration list for PBXNativeTarget "FormulaOne" */;
 			buildPhases = (
 				FAA3BC0F9930D8114AAE52B8 /* [CP] Check Pods Manifest.lock */,
 				B776A05F266EB86E00FE7532 /* Sources */,
@@ -209,9 +215,9 @@
 			);
 			dependencies = (
 			);
-			name = F1RaceInfo;
+			name = FormulaOne;
 			productName = F1RaceInfo;
-			productReference = B776A063266EB86E00FE7532 /* F1RaceInfo.app */;
+			productReference = B776A063266EB86E00FE7532 /* FormulaOne.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -228,7 +234,7 @@
 					};
 				};
 			};
-			buildConfigurationList = B776A05E266EB86E00FE7532 /* Build configuration list for PBXProject "F1RaceInfo" */;
+			buildConfigurationList = B776A05E266EB86E00FE7532 /* Build configuration list for PBXProject "FormulaOne" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -241,7 +247,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				B776A062266EB86E00FE7532 /* F1RaceInfo */,
+				B776A062266EB86E00FE7532 /* FormulaOne */,
 			);
 		};
 /* End PBXProject section */
@@ -295,7 +301,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-F1RaceInfo-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-FormulaOne-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -308,15 +314,15 @@
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-F1RaceInfo/Pods-F1RaceInfo-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-FormulaOne/Pods-FormulaOne-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-F1RaceInfo/Pods-F1RaceInfo-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-FormulaOne/Pods-FormulaOne-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-F1RaceInfo/Pods-F1RaceInfo-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-FormulaOne/Pods-FormulaOne-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -487,19 +493,19 @@
 		};
 		B776A078266EB87900FE7532 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3C5B1F1287E438E566950DA5 /* Pods-F1RaceInfo.debug.xcconfig */;
+			baseConfigurationReference = AEBA2254EB736AD37D101B52 /* Pods-FormulaOne.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5Y6989TCTS;
-				INFOPLIST_FILE = "F1RaceInfo/Supporting Files/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/FormulaOne/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.lightrid.F1RaceInfo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.lightrid.FormulaOne;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -508,19 +514,19 @@
 		};
 		B776A079266EB87900FE7532 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 919C58755B6026E2558A9CBA /* Pods-F1RaceInfo.release.xcconfig */;
+			baseConfigurationReference = CC925FC98F87170488B8B470 /* Pods-FormulaOne.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5Y6989TCTS;
-				INFOPLIST_FILE = "F1RaceInfo/Supporting Files/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/FormulaOne/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.lightrid.F1RaceInfo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.lightrid.FormulaOne;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -530,7 +536,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		B776A05E266EB86E00FE7532 /* Build configuration list for PBXProject "F1RaceInfo" */ = {
+		B776A05E266EB86E00FE7532 /* Build configuration list for PBXProject "FormulaOne" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				B776A075266EB87900FE7532 /* Debug */,
@@ -539,7 +545,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		B776A077266EB87900FE7532 /* Build configuration list for PBXNativeTarget "F1RaceInfo" */ = {
+		B776A077266EB87900FE7532 /* Build configuration list for PBXNativeTarget "FormulaOne" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				B776A078266EB87900FE7532 /* Debug */,
