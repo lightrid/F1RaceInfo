@@ -1,5 +1,5 @@
 ### FormulaOne pet-project 🏎 
-This is final project on Postindustria School iOS Development course
+This is a final project on Postindustria School iOS Development course
 
 ## About
 This is a simple app, that uses Ergast API to display current year race winners and search for participants in a given year and with a given position.
@@ -13,7 +13,7 @@ This is a simple app, that uses Ergast API to display current year race winners 
 
 ## Used Frameworks
 - Foundation
-- UIKit: UITabBarController, UINavigationController, UITableViewController,  Custom XIB
+- UIKit: UITabBarController, UINavigationController, UITableViewController, Custom XIB
 - UIWebKit
 - Alamofire
 - DropDown
@@ -23,10 +23,10 @@ This is a simple app, that uses Ergast API to display current year race winners 
 
 ## Screenshots
 <div align="center">
-  <img src="https://raw.githubusercontent.com/lightrid/FormulaOne/main/Media/2.png" width="300" height="600"/>
-  <img src="https://raw.githubusercontent.com/lightrid/FormulaOne/main/Media/2.1.png" width="300" height="600"/>
-  <img src="https://raw.githubusercontent.com/lightrid/FormulaOne/main/Media/2.2.png" width="300" height="600"/>
-  <img src="https://raw.githubusercontent.com/lightrid/FormulaOne/main/Media/2.3.png" width="300" height="600"/>
-  <img src="https://raw.githubusercontent.com/lightrid/FormulaOne/main/Media/3.png" width="300" height="600"/>
-  <img src="https://raw.githubusercontent.com/lightrid/FormulaOne/main/Media/4.png" width="300" height="600"/>
+  <img src="https://raw.githubusercontent.com/lightrid/FormulaOne/main/Media/2.png" width="250" height="541"/>
+  <img src="https://raw.githubusercontent.com/lightrid/FormulaOne/main/Media/2.1.png" width="250" height="541"/>
+  <img src="https://raw.githubusercontent.com/lightrid/FormulaOne/main/Media/2.2.png" width="250" height="541"/>
+  <img src="https://raw.githubusercontent.com/lightrid/FormulaOne/main/Media/2.3.png" width="250" height="541"/>
+  <img src="https://raw.githubusercontent.com/lightrid/FormulaOne/main/Media/3.png" width="250" height="541"/>
+  <img src="https://raw.githubusercontent.com/lightrid/FormulaOne/main/Media/4.png" width="250" height="541"/>
 </div>
